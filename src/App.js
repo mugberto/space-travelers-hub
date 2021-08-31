@@ -3,13 +3,14 @@ import Header from './components/Header';
 import MyProfile from './components/myProfile/MyProfile';
 import logo from './assets/planet.svg';
 import Missions from './components/mission/Missions';
+import Rockets from './components/rocket/Rockets';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'ROCKETS',
-  //   component: <Rockets />,
-  // },
+  {
+    path: '/',
+    name: 'ROCKETS',
+    component: <Rockets />,
+  },
   {
     path: '/missions',
     name: 'MISSIONS',
