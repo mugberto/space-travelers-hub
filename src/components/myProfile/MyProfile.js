@@ -1,4 +1,4 @@
 const MyProfile = () => (
-  <h1>My Profile</h1>
+  null
 );
 export default MyProfile;

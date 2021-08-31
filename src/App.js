@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
-import MyProfile from './components/MyProfile/MyProfile';
+import MyProfile from './components/myProfile/MyProfile';
 import logo from './assets/planet.svg';
 
 const routes = [
