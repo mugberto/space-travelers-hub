@@ -1,18 +1,27 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import MissionsTable from './MissionsTable';
+import { getMissions } from '../../redux/mission/mission';
 
 const Missions = () => {
-  const missions = [];
+  const dispatch = useDispatch();
+  const missions = useSelector((state) => state.missions);
+
+  useEffect(() => {
+    if (!missions.length) {
+      dispatch(getMissions);
+    }
+  }, []);
+
   const handleJoining = () => null;
   const handleLeaving = () => null;
 
   return (
-    <section>
-      <MissionsTable
-        missions={missions}
-        handleJoining={handleJoining}
-        handleLeaving={handleLeaving}
-      />
-    </section>
+    <MissionsTable
+      missions={missions}
+      handleJoining={handleJoining}
+      handleLeaving={handleLeaving}
+    />
   );
 };
 
