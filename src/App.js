@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import MyProfile from './components/myProfile/MyProfile';
 import logo from './assets/planet.svg';
+import Missions from './components/mission/Missions';
 
 const routes = [
   // {
@@ -9,11 +10,11 @@ const routes = [
   //   name: 'ROCKETS',
   //   component: <Rockets />,
   // },
-  // {
-  //   path: '/missions',
-  //   name: 'MISSION',
-  //   component: <Missions />,
-  // },
+  {
+    path: '/missions',
+    name: 'MISSIONS',
+    component: <Missions />,
+  },
   {
     path: '/my-profile',
     name: 'My-PROFILE',
