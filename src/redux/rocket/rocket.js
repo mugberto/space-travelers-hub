@@ -17,4 +17,10 @@ const storeRocketData = (payload) => ({
   payload
 })
 
+export const fetchRocketData = () => (dispatch) => {
+  fetch('https://api.spacexdata.com/v3/rockets')
+    .then((response) => response.json())
+    .then((json) => dispatch(storeRocketData(json)));
+};
+
 export default rocketReducer;
