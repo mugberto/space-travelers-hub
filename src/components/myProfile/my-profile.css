@@ -1,9 +1,18 @@
+a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
 .profile-data {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.profile-data,
+.list-item {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 90vw;
-  margin: 0 auto;
 }
 
 .data {

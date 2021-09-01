@@ -61,23 +61,27 @@ const MissionsTable = ({ missions, handleJoining, handleLeaving }) => (
                 {reserved
                 && (
                 <Chip
+                  size="small"
                   label="Active Member"
                   color="info"
                   sx={{
                     borderRadius: '5px',
                     backgroundColor: '#33bfff',
+                    fontSize: '0.7rem',
                   }}
                 />
                 ) }
                 {!reserved
                 && (
                 <Chip
+                  size="small"
                   label="NOT A MEMBER"
                   sx={{
                     borderRadius: '5px',
                     color: '#fff',
                     backgroundColor: 'gray',
                     fontWeight: 600,
+                    fontSize: '0.7rem',
                   }}
                 />
                 ) }

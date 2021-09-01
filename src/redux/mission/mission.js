@@ -22,10 +22,14 @@ export const leaveMission = (id) => ({
 export const getMissions = async (dispatch) => {
   const missions = await fetchMissions();
   if (missions) {
-    dispatch(loadMissions(missions.map((mission) => ({
-      id: mission.mission_id,
-      name: mission.mission_name,
-      description: mission.description,
+    dispatch(loadMissions(missions.map(({
+      // eslint-disable-next-line camelcase
+      mission_id, mission_name, description, wikipedia,
+    }) => ({
+      id: mission_id,
+      name: mission_name,
+      description,
+      wikipedia,
     }))));
   }
 };
