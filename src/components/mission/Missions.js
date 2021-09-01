@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import MissionsTable from './MissionsTable';
-import { getMissions } from '../../redux/mission/mission';
+import { getMissions, joinMission, leaveMission } from '../../redux/mission/mission';
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -13,8 +13,8 @@ const Missions = () => {
     }
   }, []);
 
-  const handleJoining = () => null;
-  const handleLeaving = () => null;
+  const handleJoining = (id) => dispatch(joinMission(id));
+  const handleLeaving = (id) => dispatch(leaveMission(id));
 
   return (
     <MissionsTable
