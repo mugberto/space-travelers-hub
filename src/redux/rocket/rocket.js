@@ -1,4 +1,5 @@
 const STORE_ROCKET_DATA = 'space-travelers-hub/rocket/STORE_ROCKET_DATA';
+const RESERVE_ROCKET_TICKET = 'space-travelers-hub/rocket/RESERVER_ROCKET_TICKET';
 
 const defaultState = [];
 
@@ -17,6 +18,11 @@ const rocketReducer = (state = defaultState, action) => {
           id, type, name, flickrImages, description,
         };
       });
+    case RESERVE_ROCKET_TICKET:
+      return state.map((rocket) => {
+        if (rocket.id !== action.id) return rocket;
+        return { ...rocket, reserved: true };
+      });
     default:
       return state;
   }
@@ -32,5 +38,10 @@ export const fetchRocketData = () => (dispatch) => {
     .then((response) => response.json())
     .then((json) => dispatch(storeRocketData(json)));
 };
+
+export const reserveRocketTicket = (id) => ({
+  type: RESERVE_ROCKET_TICKET,
+  id,
+});
 
 export default rocketReducer;
