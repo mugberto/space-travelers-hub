@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  List, ListItem, Card, CardMedia, CardContent, Typography, Button,
+  List, ListItem, Card, CardMedia, CardContent, Typography, Button, Box,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { fetchRocketData } from '../../redux/rocket/rocket';
@@ -32,37 +32,39 @@ const Rockets = () => {
   const classes = useStyles();
 
   return (
-    <List>
-      {rockets.map((rocket) => (
-        <ListItem key={rocket.id}>
-          <Card className={classes.root} style={{ boxShadow: 'none' }}>
-            <CardMedia
-              className={classes.media}
-              image={rocket.flickr_images[0]}
-              title={rocket.rocket_name}
-            />
-            <div className={classes.details}>
-              <CardContent style={{ padding: '0 1rem' }}>
-                <Typography component="h6" variant="h6">
-                  {rocket.rocket_name}
-                </Typography>
-                <Typography
-                  component="p"
-                  color="textSecondary"
-                >
-                  {rocket.description}
-                </Typography>
-              </CardContent>
-              <div className={classes.rBtn}>
-                <Button variant="contained" color="primary" style={{ margin: '1rem' }}>
-                  Reserve a ticket
-                </Button>
+    <Box style={{ margin: '0 28px' }}>
+      <List>
+        {rockets.map((rocket) => (
+          <ListItem key={rocket.id}>
+            <Card className={classes.root} style={{ boxShadow: 'none' }}>
+              <CardMedia
+                className={classes.media}
+                image={rocket.flickr_images[0]}
+                title={rocket.rocket_name}
+              />
+              <div className={classes.details}>
+                <CardContent style={{ padding: '0 1rem' }}>
+                  <Typography component="h6" variant="h6">
+                    {rocket.rocket_name}
+                  </Typography>
+                  <Typography
+                    component="p"
+                    color="textSecondary"
+                  >
+                    {rocket.description}
+                  </Typography>
+                </CardContent>
+                <div className={classes.rBtn}>
+                  <Button variant="contained" color="primary" style={{ margin: '1rem' }}>
+                    Reserve a ticket
+                  </Button>
+                </div>
               </div>
-            </div>
-          </Card>
-        </ListItem>
-      ))}
-    </List>
+            </Card>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 };
 
