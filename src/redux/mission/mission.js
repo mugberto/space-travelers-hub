@@ -1,10 +1,22 @@
 import fetchMissions from './fetchMissions';
 
-const LOAD_MISSIONS = 'missions/load';
+const MISSIONS_LOADED = 'missions/loaded';
+const MISSION_JOINED = 'missions/joined';
+const MISSION_LEFT = 'missions/left';
 
 const loadMissions = (payload) => ({
-  type: LOAD_MISSIONS,
+  type: MISSIONS_LOADED,
   payload,
+});
+
+export const joinMission = (id) => ({
+  type: MISSION_JOINED,
+  id,
+});
+
+export const leaveMission = (id) => ({
+  type: MISSION_LEFT,
+  id,
 });
 
 export const getMissions = async (dispatch) => {
@@ -20,8 +32,22 @@ export const getMissions = async (dispatch) => {
 
 const reducer = (state = [], action) => {
   switch (action.type) {
-    case LOAD_MISSIONS:
+    case MISSIONS_LOADED:
       return action.payload;
+    case MISSION_JOINED:
+      return state.map((mission) => {
+        if (mission.id !== action.id) {
+          return mission;
+        }
+        return { ...mission, reserved: true };
+      });
+    case MISSION_LEFT:
+      return state.map((mission) => {
+        if (mission.id !== action.id) {
+          return mission;
+        }
+        return { ...mission, reserved: false };
+      });
     default:
       return state;
   }
