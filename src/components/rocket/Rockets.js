@@ -39,13 +39,13 @@ const Rockets = () => {
             <Card className={classes.root} style={{ boxShadow: 'none' }}>
               <CardMedia
                 className={classes.media}
-                image={rocket.flickr_images[0]}
-                title={rocket.rocket_name}
+                image={rocket.flickrImages[0]}
+                title={rocket.name}
               />
               <div className={classes.details}>
                 <CardContent style={{ padding: '0 1rem' }}>
                   <Typography component="h6" variant="h6">
-                    {rocket.rocket_name}
+                    {rocket.name}
                   </Typography>
                   <Typography
                     component="p"

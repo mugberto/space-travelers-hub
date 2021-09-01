@@ -5,7 +5,18 @@ const defaultState = [];
 const rocketReducer = (state = defaultState, action) => {
   switch (action.type) {
     case STORE_ROCKET_DATA:
-      return action.payload;
+      return action.payload.map((item) => {
+        const {
+          rocket_id: id,
+          rocket_type: type,
+          rocket_name: name,
+          flickr_images: flickrImages,
+          description,
+        } = item;
+        return {
+          id, type, name, flickrImages, description,
+        };
+      });
     default:
       return state;
   }
