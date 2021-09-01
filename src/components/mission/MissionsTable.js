@@ -19,11 +19,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
-    border: '1px solid #eee',
+    border: '1px solid #fafafa',
   },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  ':hover': {
+    backgroundColor: '#e6e6e6',
+  },
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
@@ -40,7 +43,7 @@ const MissionsTable = ({ missions, handleJoining, handleLeaving }) => (
           <StyledTableRow>
             <StyledTableCell>Mission</StyledTableCell>
             <StyledTableCell align="left">Description</StyledTableCell>
-            <StyledTableCell align="left">Status</StyledTableCell>
+            <StyledTableCell align="center">Status</StyledTableCell>
             <StyledTableCell align="left">{'  '}</StyledTableCell>
           </StyledTableRow>
         </TableHead>
@@ -55,19 +58,64 @@ const MissionsTable = ({ missions, handleJoining, handleLeaving }) => (
               <StyledTableCell align="left">{name}</StyledTableCell>
               <StyledTableCell align="left" sx={{ width: '45vw' }}>{description}</StyledTableCell>
               <StyledTableCell align="center">
-                {reserved && <Chip label="Active Member" color="info" /> }
-                {!reserved && <Chip label="NOT A MEMBER" /> }
+                {reserved
+                && (
+                <Chip
+                  label="Active Member"
+                  color="info"
+                  sx={{
+                    borderRadius: '5px',
+                    backgroundColor: '#33bfff',
+                  }}
+                />
+                ) }
+                {!reserved
+                && (
+                <Chip
+                  label="NOT A MEMBER"
+                  sx={{
+                    borderRadius: '5px',
+                    color: '#fff',
+                    backgroundColor: 'gray',
+                    fontWeight: 600,
+                  }}
+                />
+                ) }
               </StyledTableCell>
               <StyledTableCell align="center">
                 {reserved
                   && (
-                  <Button variant="outlined" color="error" onClick={() => handleLeaving(id)}>
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    onClick={() => handleLeaving(id)}
+                    sx={{
+                      textTransform: 'capitalize',
+                      width: '150px',
+                      ':hover': {
+                        color: '#fff',
+                        backgroundColor: '#f25f55',
+                      },
+                    }}
+                  >
                     Leave Mission
                   </Button>
                   )}
                 {!reserved
                   && (
-                  <Button variant="outlined" color="inherit" onClick={() => handleJoining(id)}>
+                  <Button
+                    variant="outlined"
+                    color="inherit"
+                    onClick={() => handleJoining(id)}
+                    sx={{
+                      width: '150px',
+                      textTransform: 'capitalize',
+                      ':hover': {
+                        color: '#fff',
+                        backgroundColor: 'gray',
+                      },
+                    }}
+                  >
                     Join Mission
                   </Button>
                   )}
