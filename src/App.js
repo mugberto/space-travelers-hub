@@ -4,14 +4,15 @@ import Header from './components/Header';
 import MyProfile from './components/myProfile/MyProfile';
 import logo from './assets/planet.svg';
 import Missions from './components/mission/Missions';
+import Rockets from './components/rocket/Rockets';
 import store from './redux/configStore';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Rockets',
-  //   component: <Rockets />,
-  // },
+  {
+    path: '/',
+    name: 'Rockets',
+    component: <Rockets />,
+  },
   {
     path: '/missions',
     name: 'Missions',
