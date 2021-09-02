@@ -30,14 +30,6 @@ const Rockets = () => {
     }
   }, []);
 
-  const handleClick = (id, reserved) => {
-    if (!reserved) {
-      dispatch(reserveRocketTicket(id));
-    } else {
-      dispatch(cancelRocketTicket(id));
-    }
-  };
-
   return (
     <Box style={{ margin: '0 28px' }}>
       <List>
@@ -62,14 +54,28 @@ const Rockets = () => {
                   </Typography>
                 </CardContent>
                 <div className={classes.rBtn}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    style={{ margin: '1rem' }}
-                    onClick={() => handleClick(rocket.id, rocket.reserved)}
-                  >
-                    Reserve a ticket
-                  </Button>
+                  {((reserved) => {
+                    if (!reserved) {
+                      return (
+                        <Button
+                          variant="contained"
+                          style={{ margin: '1rem' }}
+                          onClick={() => dispatch(reserveRocketTicket(rocket.id))}
+                        >
+                          Reserve a ticket
+                        </Button>
+                      );
+                    }
+                    return (
+                      <Button
+                        variant="outlined"
+                        style={{ margin: '1rem', color: '#aaa', borderColor: '#aaa' }}
+                        onClick={() => dispatch(cancelRocketTicket(rocket.id))}
+                      >
+                        Cancel Reservation
+                      </Button>
+                    );
+                  })(rocket.reserved)}
                 </div>
               </div>
             </Card>
