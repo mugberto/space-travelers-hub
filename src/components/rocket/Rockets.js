@@ -4,7 +4,7 @@ import {
   List, ListItem, Card, CardMedia, CardContent, Typography, Button, Box,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { fetchRocketData, reserveRocketTicket } from '../../redux/rocket/rocket';
+import { cancelRocketTicket, fetchRocketData, reserveRocketTicket } from '../../redux/rocket/rocket';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -30,7 +30,13 @@ const Rockets = () => {
     }
   }, []);
 
-  const handleClick = (id) => dispatch(reserveRocketTicket(id));
+  const handleClick = (id, reserved) => {
+    if (!reserved) {
+      dispatch(reserveRocketTicket(id));
+    } else {
+      dispatch(cancelRocketTicket(id));
+    }
+  };
 
   return (
     <Box style={{ margin: '0 28px' }}>
@@ -60,7 +66,7 @@ const Rockets = () => {
                     variant="contained"
                     color="primary"
                     style={{ margin: '1rem' }}
-                    onClick={() => handleClick(rocket.id)}
+                    onClick={() => handleClick(rocket.id, rocket.reserved)}
                   >
                     Reserve a ticket
                   </Button>

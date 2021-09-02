@@ -1,5 +1,3 @@
-import { CardContent } from "@material-ui/core";
-
 const STORE_ROCKET_DATA = 'space-travelers-hub/rocket/STORE_ROCKET_DATA';
 const RESERVE_ROCKET_TICKET = 'space-travelers-hub/rocket/RESERVER_ROCKET_TICKET';
 const CANCEL_ROCKET_TICKET = 'space-travelers-hub/rocket/CANCEL_ROCKET_TICKET';
@@ -52,9 +50,9 @@ export const reserveRocketTicket = (id) => ({
   id,
 });
 
-export const concelRocketTicket = (id) => ({
+export const cancelRocketTicket = (id) => ({
   type: CANCEL_ROCKET_TICKET,
-  id
+  id,
 });
 
 export default rocketReducer;
