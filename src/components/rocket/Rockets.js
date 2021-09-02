@@ -31,7 +31,6 @@ const Rockets = () => {
   }, []);
 
   const handleClick = (id) => dispatch(reserveRocketTicket(id));
-
   return (
     <Box style={{ margin: '0 28px' }}>
       <List>

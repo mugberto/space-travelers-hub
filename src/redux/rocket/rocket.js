@@ -23,6 +23,7 @@ const rocketReducer = (state = defaultState, action) => {
         if (rocket.id !== action.id) return rocket;
         return { ...rocket, reserved: true };
       });
+
     default:
       return state;
   }
