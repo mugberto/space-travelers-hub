@@ -14,9 +14,10 @@ const rocketReducer = (state = defaultState, action) => {
           rocket_name: name,
           flickr_images: flickrImages,
           description,
+          wikipedia,
         } = item;
         return {
-          id, type, name, flickrImages, description,
+          id, type, name, flickrImages, description, wikipedia,
         };
       });
     case RESERVE_ROCKET_TICKET:
