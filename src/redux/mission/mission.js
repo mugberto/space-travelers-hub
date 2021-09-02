@@ -4,7 +4,7 @@ const MISSIONS_LOADED = 'missions/loaded';
 const MISSION_JOINED = 'missions/joined';
 const MISSION_LEFT = 'missions/left';
 
-const loadMissions = (payload) => ({
+export const loadMissions = (payload) => ({
   type: MISSIONS_LOADED,
   payload,
 });
@@ -23,11 +23,10 @@ export const getMissions = async (dispatch) => {
   const missions = await fetchMissions();
   if (missions) {
     dispatch(loadMissions(missions.map(({
-      // eslint-disable-next-line camelcase
-      mission_id, mission_name, description, wikipedia,
+      mission_id: id, mission_name: name, description, wikipedia,
     }) => ({
-      id: mission_id,
-      name: mission_name,
+      id,
+      name,
       description,
       wikipedia,
     }))));
