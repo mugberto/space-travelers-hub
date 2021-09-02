@@ -79,7 +79,7 @@ Feel free to check the [issues page](https://github.com/mugberto/space-travelers
 
 ## Authors
 
-👤 **Lameck Otieno**
+👤 **Hubert Mugabo**
 
 * GitHub: [@githubhandle](https://github.com/mugberto)
 * Twitter: [@twitterhandle](https://twitter.com/mugberto)
