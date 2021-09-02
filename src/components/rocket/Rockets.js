@@ -22,6 +22,15 @@ const useStyles = makeStyles(() => ({
 
 const Rockets = () => {
   const classes = useStyles();
+  const badgeStyle = {
+    display: 'inline-block',
+    color: 'white',
+    backgroundColor: '#28a2b8',
+    fontSize: '0.7rem',
+    padding: '0.1rem 0.5rem',
+    marginRight: '1rem',
+    borderRadius: '3px',
+  };
   const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,13 +39,7 @@ const Rockets = () => {
     }
   }, []);
 
-  const handleClick = (id, reserved) => {
-    if (!reserved) {
-      dispatch(reserveRocketTicket(id));
-    } else {
-      dispatch(cancelRocketTicket(id));
-    }
-  };
+  const badge = (reserved) => (reserved ? <span style={badgeStyle}>Reserved</span> : null);
 
   return (
     <Box style={{ margin: '0 28px' }}>
@@ -58,18 +61,33 @@ const Rockets = () => {
                     component="p"
                     color="textSecondary"
                   >
+                    {badge(rocket.reserved)}
                     {rocket.description}
                   </Typography>
                 </CardContent>
                 <div className={classes.rBtn}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    style={{ margin: '1rem' }}
-                    onClick={() => handleClick(rocket.id, rocket.reserved)}
-                  >
-                    Reserve a ticket
-                  </Button>
+                  {((reserved) => {
+                    if (!reserved) {
+                      return (
+                        <Button
+                          variant="contained"
+                          style={{ margin: '1rem' }}
+                          onClick={() => dispatch(reserveRocketTicket(rocket.id))}
+                        >
+                          Reserve Rocket
+                        </Button>
+                      );
+                    }
+                    return (
+                      <Button
+                        variant="outlined"
+                        style={{ margin: '1rem', color: '#aaa', borderColor: '#aaa' }}
+                        onClick={() => dispatch(cancelRocketTicket(rocket.id))}
+                      >
+                        Cancel Reservation
+                      </Button>
+                    );
+                  })(rocket.reserved)}
                 </div>
               </div>
             </Card>
