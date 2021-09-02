@@ -24,11 +24,13 @@ const rocketReducer = (state = defaultState, action) => {
         if (rocket.id !== action.id) return rocket;
         return { ...rocket, reserved: true };
       });
+
     case CANCEL_ROCKET_TICKET:
       return state.map((rocket) => {
         if (rocket.id !== action.id) return rocket;
         return { ...rocket, reserved: false };
       });
+
     default:
       return state;
   }
