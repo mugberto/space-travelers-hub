@@ -22,6 +22,15 @@ const useStyles = makeStyles(() => ({
 
 const Rockets = () => {
   const classes = useStyles();
+  const badgeStyle = {
+    display: 'inline-block',
+    color: 'white',
+    backgroundColor: '#28a2b8',
+    fontSize: '0.7rem',
+    padding: '0.1rem 0.5rem',
+    marginRight: '1rem',
+    borderRadius: '3px',
+  };
   const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,6 +38,8 @@ const Rockets = () => {
       dispatch(fetchRocketData());
     }
   }, []);
+
+  const badge = (reserved) => (reserved ? <span style={badgeStyle}>Reserved</span> : null);
 
   return (
     <Box style={{ margin: '0 28px' }}>
@@ -50,6 +61,7 @@ const Rockets = () => {
                     component="p"
                     color="textSecondary"
                   >
+                    {badge(rocket.reserved)}
                     {rocket.description}
                   </Typography>
                 </CardContent>
@@ -62,7 +74,7 @@ const Rockets = () => {
                           style={{ margin: '1rem' }}
                           onClick={() => dispatch(reserveRocketTicket(rocket.id))}
                         >
-                          Reserve a ticket
+                          Reserve Rocket
                         </Button>
                       );
                     }
