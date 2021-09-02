@@ -4,7 +4,7 @@ import {
   List, ListItem, Card, CardMedia, CardContent, Typography, Button, Box,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { fetchRocketData } from '../../redux/rocket/rocket';
+import { fetchRocketData, reserveRocketTicket } from '../../redux/rocket/rocket';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,6 +21,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Rockets = () => {
+  const classes = useStyles();
   const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,8 +30,7 @@ const Rockets = () => {
     }
   }, []);
 
-  const classes = useStyles();
-
+  const handleClick = (id) => dispatch(reserveRocketTicket(id));
   return (
     <Box style={{ margin: '0 28px' }}>
       <List>
@@ -55,7 +55,12 @@ const Rockets = () => {
                   </Typography>
                 </CardContent>
                 <div className={classes.rBtn}>
-                  <Button variant="contained" color="primary" style={{ margin: '1rem' }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    style={{ margin: '1rem' }}
+                    onClick={() => handleClick(rocket.id)}
+                  >
                     Reserve a ticket
                   </Button>
                 </div>
