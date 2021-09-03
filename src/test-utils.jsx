@@ -9,7 +9,12 @@ function render(
   ui,
   {
     preloadedState,
-    store = configureStore({ reducer: { missions: missionsReducer, rockets: rocketReducer }, preloadedState }),
+    store = configureStore({
+      reducer: {
+        missions: missionsReducer, rockets: rocketReducer,
+      },
+      preloadedState,
+    }),
     ...renderOptions
   } = {},
 ) {
