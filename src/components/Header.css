@@ -1,0 +1,43 @@
+.nav-link {
+  text-decoration: none;
+  color: #07f;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-link:nth-child(2) {
+  padding-left: 20px;
+}
+
+.nav-link:nth-child(2)::after {
+  content: "|";
+  color: #333;
+  padding: 0 20px;
+}
+
+.brand-logo > span {
+  font-weight: 600;
+  font-size: 2rem;
+  padding-left: 20px;
+}
+
+header,
+.brand-logo,
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #b8b3b3;
+  margin: 0 auto 15px;
+  width: 95vw;
+}
