@@ -37,7 +37,7 @@ const rocketReducer = (state = defaultState, action) => {
   }
 };
 
-const storeRocketData = (payload) => ({
+export const storeRocketData = (payload) => ({
   type: STORE_ROCKET_DATA,
   payload,
 });

@@ -3,12 +3,18 @@ import { render as rtlRender } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import missionsReducer from './redux/mission/mission';
+import rocketReducer from './redux/rocket/rocket';
 
 function render(
   ui,
   {
     preloadedState,
-    store = configureStore({ reducer: { missions: missionsReducer }, preloadedState }),
+    store = configureStore({
+      reducer: {
+        missions: missionsReducer, rockets: rocketReducer,
+      },
+      preloadedState,
+    }),
     ...renderOptions
   } = {},
 ) {
