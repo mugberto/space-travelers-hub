@@ -2,13 +2,17 @@
 
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Getting Started](#getting-started)
-* [API Interactions](#api-interactions)
-* [Contributing](#contributing)
-* [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
+- [Space Travelers' Hub](#space-travelers-hub)
+  - [Table of Contents](#table-of-contents)
+  - [About Project](#about-project)
+    - [Live Demo - Netlify](#live-demo---netlify)
+  - [Built With](#built-with)
+  - [Getting Started](#getting-started)
+  - [API Interactions](#api-interactions)
+  - [Contributing](#contributing)
+  - [Authors](#authors)
+  - [Acknowledgements](#acknowledgements)
+  - [Show your support](#show-your-support)
 
 ## About Project
 
@@ -17,9 +21,7 @@ This project uses [SpaceX API](https://documenter.getpostman.com/view/2025350/RW
 
 ![screenshot](./src/assets/screenshot.png)
 
-<!-- ## [Live Demo - GH pages]() -->
-<!-- ## [Live Demo - Netlify]() -->
-<!-- ## [Live Demo - Heroku]() -->
+### [Live Demo - Netlify](https://61316b3b988a0259237471f3--relaxed-bell-daddf8.netlify.app/)
 
 ## Built With
 
